@@ -1,27 +1,21 @@
 # The IP and services for my running project
 
 ### Cluster IP
-- Using Kubectl get --all --namespace
+- ```Using Kubectl get --simple--jwt-api```
 
-NAMESPACE    | NAME            | TYPE        |  CLUSTER-IP    |  EXTERNAL-IP     |  PORT(S)      |    AGE
---------------------------------------------------------------------------------------------------------------------------------------
-default      | kubernetes      | ClusterIP   | 10.100.0.1     |     <none>       |  443/TCP      |    69m
---------------------------------------------------------------------------------------------------------------------------------------
-default      | simple-jwt-api  | LoadBalancer| 10.100.115.89  |a9028ec0e4f5c4fb19adc7719bfbb471-1852699684.us-east-2.elb.amazonaws.com|   80:31794/TCP |   30m
---------------------------------------------------------------------------------------------------------------------------------------
-kube-system  | kube-dns        | ClusterIP   | 10.100.0.10    | <none>           | 53/UDP,53/TCP |    69m
-
-###### Giving this as my active cluster IP  ** default  simple-jwt-api <NAME>  LoadBalancer <TYPE> 10.100.115.89 <CLUSTER-IP>  a9028ec0e4f5c4fb19adc7719bfbb471-1852699684.us-east-2.elb.amazonaws.com <EXTERNAL-IP>  80:31794/TCP <PORT(S)>   30m <AGE> **
+#### My active cluster IP  
+**simple-jwt-api** --_Name_ --- LoadBalancer -- _Type_ --- **10.100.115.89**  --_Cluster-IP_ -- **a9028ec0e4f5c4fb19adc7719bfbb471-1852699684.us-east-2.elb.amazonaws.com** -- **80:31794/TCP** --_Port(s)_ --- 30m --_Age_ 
 
 ### Working Nodes
 - Also here's a view for the working nodes associated with this cluster 
-NAME                            READY   STATUS   | RESTARTS |  AGE  | IP           |         NODE       NOMINATED NODE   
+  - ```Using kubectl get pod -o wide```
+##### NAME         -----               READY -----  STATUS  ----  RESTARTS ----  AGE ----  IP    ------    NODE    -----   NOMINATED NODE   
 --------------------------------------------------------------------------------------------------------------------------------------
-simple-jwt-api-dbc5558f-7f5ml | 1/1     Running  |  0       |  12m  | 192.168.9.208|  ip-192-168-8-122.us-east-2.compute.internal 
+###### simple-jwt-api-dbc5558f-7f5ml  ---  1/1  ---Running  ---  0  ---  12m --- 192.168.9.208 --- ip-192-168-8-122.us-east-2.compute.internal 
 --------------------------------------------------------------------------------------------------------------------------------------   
-simple-jwt-api-dbc5558f-f4bs4 |  1/1     Running |  0       |  12m  | 192.168.41.8 |  ip-192-168-62-113.us-east-2.compute.internal   
+###### simple-jwt-api-dbc5558f-f4bs4  ---  1/1 --- Running  ---  0  ---  12m --- 192.168.41.8  --- ip-192-168-62-113.us-east-2.compute.internal   
 --------------------------------------------------------------------------------------------------------------------------------------
-simple-jwt-api-dbc5558f-z87dg |  1/1     Running |  0       |  12m  | 192.168.14.16|  ip-192-168-8-122.us-east-2.compute.internal    
+###### simple-jwt-api-dbc5558f-z87dg  ---  1/1 --- Running  ---  0  ---  12m --- 192.168.14.16 --- ip-192-168-8-122.us-east-2.compute.internal    
 
 # Deploying a Flask API
 
